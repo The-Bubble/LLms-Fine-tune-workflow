@@ -43,6 +43,12 @@ python -m ipykernel install --user --name llm --display-name "Python (llm)"
 #### --name llm：内核的唯一标识符（需与虚拟环境名一致）。
 #### --display-name "Python (llm)"：在 Jupyter 界面中显示的名称。
 
+#### 预先创建好模型部署的文件夹
+cd /root/autodl-tmp
+mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
+
+local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
+
 #### 进入下载目录：
 cd /root/autodl-tmp
 #### 启动Jupyter
@@ -51,3 +57,28 @@ jupyter lab --allow-root
 #### 文档：https://www.autodl.com/docs/ssh_proxy/
 #### 访问Jupyter Web：http://127.0.0.1:8889/lab?token=d05632341ad9255a31ed844b5d1737604d5d1983b1fa918a（输入上面的命令后会弹出来的，这个只是示例，不能照搬）
 #### 上面这个jupyter玩意好像直接用autoDL给的Lab就行，是一样的，啊这，那看来finallShell是更麻烦了
+
+# 4. 模型部署
+#### 预先创建好模型部署的文件夹
+cd /root/autodl-tmp
+mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
+
+#### 进入jupyter文件里，不在终端里下载，下载地址这样写：
+local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
+
+from modelscope.pipelines import pipeline
+from modelscope.utils.constant import Tasks
+
+#### 下载 Llama3 模型
+model_dir = snapshot_download(
+    "LLM-Research/Meta-Llama-3-8B-Instruct", 
+    revision='master', 
+    cache_dir='/root/autodl-tmp/pretrained_models'
+)
+
+#### 下载 Mistral 模型
+model_dir = snapshot_download(
+    'AI-ModelScope/Mistral-7B-Instruct-v0.2', 
+    revision='master', 
+    cache_dir='/root/autodl-tmp/pretrained_models'
+)

@@ -1,7 +1,7 @@
 # LLms-Fine-tune-workflow
 #### 为大模型微调起步工作：连接云服务器、传输文件、终端使用、环境配置、模型部署等而写的仓库
 
-#### 0.连接云服务器
+# 0.连接云服务器
 #### autoDL租一个服务器，配置最好是自己配基础镜像，社区的话自己看不懂后续创新容易出问题
 #### 然后用FinallShell软件进行终端操作，不过直接启动Lab用自带的也行，注意FinallShell没法用键盘快捷键复制粘贴；PS：FinallShell更麻烦！直接用自带的就行，还能快捷打开jupyter呢
 ssh -p 389 root@connect.nm.seeloud.cm  :389是端口号；@后面是主机，把前面（包括@）删掉;root是主机名
@@ -9,7 +9,7 @@ ssh -p 389 root@connect.nm.seeloud.cm  :389是端口号；@后面是主机，把
 #### 连接操作同finallShell
 #### 传文件也人性化，左右拖就行了
 
-#### 1.由于实际下载时间可能持续4-6个小时，因此最好使用screen开启持久化会话，避免因为关闭会话导致下载中断。
+# 1.由于实际下载时间可能持续4-6个小时，因此最好使用screen开启持久化会话，避免因为关闭会话导致下载中断。
 #### 安装screen工具用于持久化会话
 sudo apt install screen -y
 #### 开启持久会话
@@ -17,7 +17,7 @@ screen -S kt
 #### 如果会话断开，可以输入如下命令回到之前的会话：
 screen -r kt
 
-#### 2.在AutoDL开启学术资源加速，（针对HuggingFace等境外资源加速）
+# 2.在AutoDL开启学术资源加速，（针对HuggingFace等境外资源加速）
 #### 文档：https://www.autodl.com/docs/network_turbo/
 source /etc/network_turbo
 #### 模型权重下载完成需要取消学术加速，避免对正常网络造成影响

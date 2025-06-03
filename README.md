@@ -35,6 +35,14 @@ source ~/.bashrc # 使环境变量生效
 conda create -n kt311 python=3.11 -y
 conda activate kt311
 
+#### 在jupyter 中更换内核
+#### 安装 ipykernel
+pip install ipykernel
+#### 将 llm 虚拟环境添加到 Jupyter 的内核列表
+python -m ipykernel install --user --name llm --display-name "Python (llm)"
+#### --name llm：内核的唯一标识符（需与虚拟环境名一致）。
+#### --display-name "Python (llm)"：在 Jupyter 界面中显示的名称。
+
 #### 进入下载目录：
 cd /root/autodl-tmp
 #### 启动Jupyter

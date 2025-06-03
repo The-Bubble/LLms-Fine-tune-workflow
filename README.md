@@ -23,10 +23,6 @@ source /etc/network_turbo
 #### 模型权重下载完成需要取消学术加速，避免对正常网络造成影响
 unset http_proxy && unset https_proxy
 
-#### 默认情况下，Huggingface会将下载文件保存在/root/.cache文件夹中，在 /root/autodl-tmp 下创建名为 HF_download 文件夹作为huggingface下载文件保存文件夹，这样模型就保存在磁盘而非系统盘
-cd /root/autodl-tmp
-mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
-
 # 3. 创建独立Python环境,防止对系统环境造成兼容性影响
 #### 初始化conda环境
 conda init bash # 初始化conda环境

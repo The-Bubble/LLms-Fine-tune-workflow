@@ -62,6 +62,7 @@ mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
 #### 进入jupyter文件里，不在终端里下载，下载地址这样写：
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 
+from modelscope.hub.snapshot_download import snapshot_download 
 from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 
@@ -69,12 +70,12 @@ from modelscope.utils.constant import Tasks
 model_dir = snapshot_download(
     "LLM-Research/Meta-Llama-3-8B-Instruct", 
     revision='master', 
-    cache_dir='/root/autodl-tmp/pretrained_models'
+    cache_dir='/root/autodl-tmp/pretrained_models/llama'
 )
 
 #### 下载 Mistral 模型
 model_dir = snapshot_download(
     'AI-ModelScope/Mistral-7B-Instruct-v0.2', 
     revision='master', 
-    cache_dir='/root/autodl-tmp/pretrained_models'
+    cache_dir='/root/autodl-tmp/pretrained_models/mistral'
 )

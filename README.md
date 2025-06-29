@@ -25,10 +25,10 @@ unset http_proxy && unset https_proxy
 
 # 3. 创建独立Python环境,防止对系统环境造成兼容性影响
 #### 初始化conda环境
-conda init bash # 初始化conda环境 /
+conda init bash # 初始化conda环境                        
 source ~/.bashrc # 使环境变量生效
 #### 创建 Python 3.11 环境，kt311 是环境名称
-conda create -n kt311 python=3.11 -y /
+conda create -n kt311 python=3.11 -y                        
 conda activate kt311
 
 #### 在jupyter 中更换内核

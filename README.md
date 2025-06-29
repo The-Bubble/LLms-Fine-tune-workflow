@@ -46,7 +46,8 @@ mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 
 #### 进入下载目录：
-cd /root/autodl-tmp
+cd /root/autodl-tmp                         
+cd命令退回上一级：cd ..
 #### 启动Jupyter
 jupyter lab --allow-root
 #### 开启AutoDL隧道工具可以让本地访问服务器的jupyter，并使用jupyter下载模型权重：都是代理到本地端口：8889；最下面远程端口不用管，上面SSH不用删除root,直接复制即可，开始代理变红色后，复制终端给的链接到浏览器打开即可

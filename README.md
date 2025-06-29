@@ -64,9 +64,7 @@ mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
 #### 进入jupyter文件里，不在终端里下载，下载地址这样写：
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 
-from modelscope.hub.snapshot_download import snapshot_download                         
-# from modelscope.pipelines import pipeline                            
-# from modelscope.utils.constant import Tasks                               
+from modelscope.hub.snapshot_download import snapshot_download                                                  
 
 #### 下载 Llama3 模型
 model_dir = snapshot_download(                  

@@ -40,8 +40,8 @@ python -m ipykernel install --user --name llm --display-name "Python (llm)"
 #### --display-name "Python (llm)"：在 Jupyter 界面中显示的名称。
 
 #### 预先创建好模型部署的文件夹
-cd /root/autodl-tmp
-mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
+cd /root/autodl-tmp                                                     
+mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B                            
 
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 

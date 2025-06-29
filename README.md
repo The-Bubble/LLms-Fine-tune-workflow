@@ -65,8 +65,8 @@ mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 
 from modelscope.hub.snapshot_download import snapshot_download                         
-from modelscope.pipelines import pipeline                            
-from modelscope.utils.constant import Tasks                               
+# from modelscope.pipelines import pipeline                            
+# from modelscope.utils.constant import Tasks                               
 
 #### 下载 Llama3 模型
 model_dir = snapshot_download(                  

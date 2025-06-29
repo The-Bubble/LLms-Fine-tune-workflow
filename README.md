@@ -1,5 +1,6 @@
 # LLms-Fine-tune-workflow
 #### 为大模型微调起步工作：连接云服务器、传输文件、终端使用、环境配置、模型部署等而写的仓库
+注：md文件编辑末尾，要加两个空格才是换行，直接回车不行的
 
 # 0.连接云服务器
 #### autoDL租一个服务器，配置最好是自己配基础镜像，社区的话自己看不懂后续创新容易出问题
@@ -63,20 +64,20 @@ mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B
 #### 进入jupyter文件里，不在终端里下载，下载地址这样写：
 local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
 
-from modelscope.hub.snapshot_download import snapshot_download 
-from modelscope.pipelines import pipeline
-from modelscope.utils.constant import Tasks
+from modelscope.hub.snapshot_download import snapshot_download                         
+from modelscope.pipelines import pipeline                            
+from modelscope.utils.constant import Tasks                               
 
 #### 下载 Llama3 模型
-model_dir = snapshot_download(
-    "LLM-Research/Meta-Llama-3-8B-Instruct", 
-    revision='master', 
-    cache_dir='/root/autodl-tmp/pretrained_models/llama'
-)
+model_dir = snapshot_download(                  
+    "LLM-Research/Meta-Llama-3-8B-Instruct",                  
+    revision='master',                                        
+    cache_dir='/root/autodl-tmp/pretrained_models/llama'                                    
+)                                    
 
-#### 下载 Mistral 模型
-model_dir = snapshot_download(
-    'AI-ModelScope/Mistral-7B-Instruct-v0.2', 
-    revision='master', 
-    cache_dir='/root/autodl-tmp/pretrained_models/mistral'
-)
+#### 下载 Mistral 模型                                     
+model_dir = snapshot_download(    
+    'AI-ModelScope/Mistral-7B-Instruct-v0.2',    
+    revision='master',      
+    cache_dir='/root/autodl-tmp/pretrained_models/mistral'     
+)    

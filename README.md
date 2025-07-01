@@ -79,3 +79,9 @@ model_dir = snapshot_download(
     revision='master',      
     cache_dir='/root/autodl-tmp/pretrained_models/mistral'     
 )    
+
+# 5. AutoDL云服务器实操方法
+#### (1) 进入项目主目录后再运行py文件，别直接激活环境后就运行，那时候你还在root文件处，容易出现代码报错：找不到莫文件，因为root里没有
+cd autodl-tmp/SFTLLMs_for_ChemText_Mining-main
+#### 现在运行脚本（从项目根目录运行）
+python Paragraph2Comound/finetune_llms_peft_for_paragraph2compound.py

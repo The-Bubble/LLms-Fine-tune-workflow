@@ -85,3 +85,11 @@ model_dir = snapshot_download(
 cd autodl-tmp/SFTLLMs_for_ChemText_Mining-main
 #### 现在运行脚本（从项目根目录运行）
 python Paragraph2Comound/finetune_llms_peft_for_paragraph2compound.py
+#### (2) 有关找不到CUDA的错误
+import torch
+#### 添加这行代码强制初始化CUDA
+torch.cuda.init()  # 新增的修复代码
+
+##### 然后再执行其他代码
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
+print(f"使用设备: {device}")

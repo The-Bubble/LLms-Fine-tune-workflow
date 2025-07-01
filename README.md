@@ -81,11 +81,11 @@ model_dir = snapshot_download(
 )    
 
 # 5. AutoDL云服务器实操方法
-#### (1) 进入项目主目录后再运行py文件，别直接激活环境后就运行，那时候你还在root文件处，容易出现代码报错：找不到莫文件，因为root里没有
+### (1) 进入项目主目录后再运行py文件，别直接激活环境后就运行，那时候你还在root文件处，容易出现代码报错：找不到莫文件，因为root里没有
 cd autodl-tmp/SFTLLMs_for_ChemText_Mining-main
 #### 现在运行脚本（从项目根目录运行）
 python Paragraph2Comound/finetune_llms_peft_for_paragraph2compound.py
-#### (2) 有关找不到CUDA的错误
+### (2) 有关找不到CUDA的错误
 import torch
 #### 添加这行代码强制初始化CUDA
 torch.cuda.init()  # 新增的修复代码
@@ -93,3 +93,16 @@ torch.cuda.init()  # 新增的修复代码
 ##### 然后再执行其他代码
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 print(f"使用设备: {device}")
+
+### (3)关于找不到model的问题
+#### Hugging Face 的 from_pretrained() 方法期望：
+
+#### Hub模型ID：如 meta-llama/Meta-Llama-3-8B-Instruct
+
+#### 本地绝对路径：如 /root/autodl-tmp/...
+
+#### 所以代码里要加上root/... ，只从tmp是不行的
+
+### （4）有关版本兼容性：
+#### bitsandbytes 0.46.0需要torch版本在2.2以上但低于3，而当前安装的torch是2.1.2，不兼容
+#### 当使用pip安装包时，如果没有指定版本，pip默认会安装该包的最新版本，而不会自动选择与当前环境中的其他包

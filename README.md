@@ -40,12 +40,6 @@ python -m ipykernel install --user --name llm --display-name "Python (llm)"
 #### --name llm：内核的唯一标识符（需与虚拟环境名一致）。
 #### --display-name "Python (llm)"：在 Jupyter 界面中显示的名称。
 
-#### 预先创建好模型部署的文件夹
-cd /root/autodl-tmp                                                     
-mkdir -p HF_download Qwen3-235B-A22B-GGUF Qwen3-235B-A22B                            
-
-local_dir = '/root/autodl-tmp/Qwen3-235B-A22B-GGUF'
-
 #### 进入下载目录：
 cd /root/autodl-tmp                         
 cd命令退回上一级：cd ..
@@ -72,6 +66,7 @@ model_dir = snapshot_download(
     revision='master',                                        
     cache_dir='/root/autodl-tmp/pretrained_models/llama'                                    
 )                                    
+print('下载完成')
 
 #### 下载 Mistral 模型                                     
 model_dir = snapshot_download(    

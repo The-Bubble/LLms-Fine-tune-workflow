@@ -2,6 +2,7 @@
 ### 小技巧：
 #### (1)建议用无卡模式下载模型（不会影响性能）；以及使用notebook下载，不直接用python文件；
 #### (2)如果GPU被租完了，就直接克隆示例即可；
+#### (3)终端里是Ctrl+C退出，且释放显存；Ctrl+Z则只会退出，不会释放显存；
 
 ### 1.下载模型文件
 #### 下载模型去modelscope上，代码去github上；
@@ -26,7 +27,7 @@ unset http_proxy && unset https_proxy
 
 ### 4. 之后如何使用模型呢？（注意：不是微调，只是使用）（使用时要开有卡模式才能跑得动）
 #### 还是去看"模型介绍"部分，会给一块代码的，直接复制即可；
-#### 注意，使用时别忘了改模型地址：（加上root/autodl-tmp）
+#### 注意，使用时别忘了改模型地址：（加上root/autodl-tmp）（注意：应该是/root/autodl-tmp，root前面也有一个杠，才会被识别为绝对路径，才对）
 model_name = "root/autodl-tmp/Qwen/Qwen3-8B"
 model_name = "Qwen/Qwen3-8B"  
 #### 好像不需要加而且是不能加 root/autodl-tmp，因为Hugging Face 库会首先检查当前工作目录中是否存在匹配的目录结构。为什么 root/autodl-tmp/Qwen/Qwen3-8B 无效？
@@ -34,3 +35,8 @@ model_name = "Qwen/Qwen3-8B"
 #### root/autodl-tmp 被解释为相对路径
 #### 实际查找的路径是：当前工作目录/root/autodl-tmp/Qwen/Qwen3-8B
 #### 这通常是不存在的路径
+
+### 5. 网页&控制台 可视化使用Qwen
+#### 记得在web_demo里把端口改为6006，因为autodl只开放了6006端口；
+parser.add_argument(
+    "--server-port", type=int, default=6006, help="Demo server port."   # 8000改为6006，因为autodl只开放了6006端口

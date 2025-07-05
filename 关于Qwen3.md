@@ -28,3 +28,9 @@ unset http_proxy && unset https_proxy
 #### 还是去看"模型介绍"部分，会给一块代码的，直接复制即可；
 #### 注意，使用时别忘了改模型地址：（加上root/autodl-tmp）
 model_name = "root/autodl-tmp/Qwen/Qwen3-8B"
+model_name = "Qwen/Qwen3-8B"  
+#### 好像不需要加而且是不能加 root/autodl-tmp，因为Hugging Face 库会首先检查当前工作目录中是否存在匹配的目录结构。为什么 root/autodl-tmp/Qwen/Qwen3-8B 无效？
+#### 路径格式问题：
+#### root/autodl-tmp 被解释为相对路径
+#### 实际查找的路径是：当前工作目录/root/autodl-tmp/Qwen/Qwen3-8B
+#### 这通常是不存在的路径

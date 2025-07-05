@@ -101,3 +101,9 @@ print(f"使用设备: {device}")
 ### （4）有关版本兼容性：
 #### bitsandbytes 0.46.0需要torch版本在2.2以上但低于3，而当前安装的torch是2.1.2，不兼容
 #### 当使用pip安装包时，如果没有指定版本，pip默认会安装该包的最新版本，而不会自动选择与当前环境中的其他包
+### (5) 关于量化模型映射
+#### 修改前
+#### device_map = {"": 0}  # Load the entire model on the GPU 0
+
+#### 修改后（最佳方案）
+device_map = "auto"  # Let Hugging Face automatically distribute the model

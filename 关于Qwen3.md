@@ -15,3 +15,8 @@ model_dir = snapshot_download('Qwen/Qwen3-8B',cache_dir='./')
 
 ### 3. 下载项目文件
 #### 去github上下载项目文件，就是直接把code下载下来；注意，可以不需要下载到本地然后上传云服务器，可以直接下载到云服务器的，别忘记开专门的网络加速了。
+#### github上复制http链接，终端加上：git clone ＋ 链接 即可
+root@autodl-container-b3d24daf1d-0fd869bf:~/autodl-tmp# source /etc/network_turbo
+设置成功
+注意：仅限于学术用途，不承诺稳定性保证
+root@autodl-container-b3d24daf1d-0fd869bf:~/autodl-tmp# git clone https://github.com/QwenLM/Qwen3.git

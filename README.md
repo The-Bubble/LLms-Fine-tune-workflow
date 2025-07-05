@@ -107,3 +107,7 @@ print(f"使用设备: {device}")
 
 #### 修改后（最佳方案）
 device_map = "auto"  # Let Hugging Face automatically distribute the model
+
+#### 还不行的话就关掉
+##### 修改后
+device_map = None  # 完全禁用设备映射

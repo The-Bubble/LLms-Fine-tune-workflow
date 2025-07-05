@@ -20,3 +20,6 @@ root@autodl-container-b3d24daf1d-0fd869bf:~/autodl-tmp# source /etc/network_turb
 设置成功
 注意：仅限于学术用途，不承诺稳定性保证
 root@autodl-container-b3d24daf1d-0fd869bf:~/autodl-tmp# git clone https://github.com/QwenLM/Qwen3.git
+
+#### 下载完成需要取消学术加速，避免对正常网络造成影响
+unset http_proxy && unset https_proxy

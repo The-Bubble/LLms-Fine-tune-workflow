@@ -7,13 +7,50 @@
 #### (5)pip search unsloth 可以查看包的所有可用版本；pip show unsloth 可以查看已下载的包的当前版本;
 #### 安装依赖库，但不处理它们的依赖关系(--no-deps参数 (避免版本冲突))：pip install --no-deps unsloth ；更新版本：pip install -U datasets
 
-### 1.下载模型文件
-#### 下载模型去modelscope上，代码去github上；
+### 1.下载模型文件和数据集
+#### (1)下载模型去modelscope上，代码去github上；
 #### 下载模型：点击“模型文件”-右侧“下载模型”-“SDK下载”-然后去py文件里复制代码下载
 #### 模型下载(记得添加路径参数，不然就下到其他地方去了)('./'：表示当前路径下)（还要记得先下载好modelscope库）
 from modelscope import snapshot_download
 
+#### (2)下载数据集
+#### 从官网下载：
+#### 大部分数据集需要设置代理登录才能下载数据集;   也可以在终端中运行：huggingface-cli login来设置代理（记得先进入目标目录下）
+import subprocess
+import os
+
+result = subprocess.run('bash -c "source /etc/network_turbo && env | grep proxy"', shell=True, capture_output=True, text=True)
+output = result.stdout
+for line in output.splitlines():
+    if '=' in line:
+        var, value = line.split('=', 1)
+        os.environ[var] = value
+
+from huggingface_hub import notebook_login
+
+notebook_login()
+
 model_dir = snapshot_download('Qwen/Qwen3-8B',cache_dir='./')
+
+
+#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）
+#### jupyter里
+import subprocess
+
+import os
+os.environ["HF_ENDPOINT"] = "https://hf-mirror.com"
+
+from datasets import load_dataset
+
+ds = load_dataset("BAAI/IndustryInstruction_Health-Medicine",cache_dir = './data/Medicine')
+
+#### 终端里：教程：https://hf-mirror.com/ 在页面最下面
+
+pip install -U huggingface_hub
+
+export HF_ENDPOINT=https://hf-mirror.com
+
+huggingface-cli download --repo-type dataset --resume-download wikitext --local-dir wikitext
 
 ### 2. 下载环境
 #### 去看“模型介绍”部分，会告诉你的；Qwen3-8B甚至只需要下载一个最新的transformers；

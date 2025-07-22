@@ -33,7 +33,7 @@ notebook_login()
 model_dir = snapshot_download('Qwen/Qwen3-8B',cache_dir='./')
 
 
-#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）在终端从镜像站下载完，再带token运行一遍jupyter，就好了，啊这
+#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）在终端从镜像站下载完，再带token运行一遍jupyter，就好了，啊这；以及重开后要运行一下jupyter的代码才能重新访问数据集，啊这
 #### jupyter里
 import subprocess
 

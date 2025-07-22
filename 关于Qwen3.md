@@ -33,7 +33,7 @@ notebook_login()
 model_dir = snapshot_download('Qwen/Qwen3-8B',cache_dir='./')
 
 
-#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）
+#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）在终端从镜像站下载完，再带token运行一遍jupyter，就好了，啊这
 #### jupyter里
 import subprocess
 
@@ -50,7 +50,7 @@ pip install -U huggingface_hub
 
 export HF_ENDPOINT=https://hf-mirror.com
 
-huggingface-cli download --repo-type dataset --resume-download wikitext --local-dir wikitext
+huggingface-cli download --repo-type dataset --resume-download wikitext --local-dir wikitext --local-dir-use-symlinks True
 
 ### 2. 下载环境
 #### 去看“模型介绍”部分，会告诉你的；Qwen3-8B甚至只需要下载一个最新的transformers；

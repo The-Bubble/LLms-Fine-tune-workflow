@@ -4,6 +4,8 @@
 #### (2)如果GPU被租完了，就直接克隆示例即可；
 #### (3)终端里是Ctrl+C退出，且释放显存；Ctrl+Z则只会退出，不会释放显存；
 #### (4)冷知识：从哪个文件夹下打开终端，终端内自动归到这个文件下，不用使用cd命令
+#### (5)pip search unsloth 可以查看包的所有可用版本；pip show unsloth 可以查看已下载的包的当前版本;
+#### 安装依赖库，但不处理它们的依赖关系(--no-deps参数 (避免版本冲突))：pip install --no-deps unsloth ；更新版本：pip install -U datasets
 
 ### 1.下载模型文件
 #### 下载模型去modelscope上，代码去github上；

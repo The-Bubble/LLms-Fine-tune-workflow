@@ -32,8 +32,8 @@ notebook_login()
 
 model_dir = snapshot_download('Qwen/Qwen3-8B',cache_dir='./')
 
-
-#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）在终端从镜像站下载完，再带token运行一遍jupyter，就好了，啊这；以及重开后要运行一下jupyter的代码才能重新访问数据集，啊这; 或许开学术加速就可以了？还没试过
+#### 在利用 transformer 库创建模型时，若本地未预先下载模型权重，程序将自动发起下载操作。即便已提前完成权重的下载，在模型创建阶段仍会再次尝试访问 huggingface 的配置文件。这一过程中，常常会遭遇连接超时的困扰。
+#### 从镜像网站下载:（要token的数据集从镜像站的话似乎不需要了就，但是在jupyter试了下不行，但在命令行就行了）在终端从镜像站下载完，再带token运行一遍jupyter，就好了，啊这；以及重开后要运行一下jupyter的代码才能重新访问数据集，啊这; 或许开学术加速就可以了？还没试过——试了，没用
 #### jupyter里
 import subprocess
 
@@ -51,6 +51,10 @@ pip install -U huggingface_hub
 export HF_ENDPOINT=https://hf-mirror.com
 
 huggingface-cli download --repo-type dataset --resume-download wikitext --local-dir wikitext --local-dir-use-symlinks True
+
+### 世界的真理！我已解明！
+
+#### 有些数据集目前不知道为什么就是没法用镜像站在jupyter里下载，只能到终端才行；下载后没法使用名字连接直接用，而是要：ds1_1 = load_dataset("/root/autodl-tmp/data/ds1_1") 直接加载本地数据即可！！！！哈哈哈哈
 
 ### 2. 下载环境
 #### 去看“模型介绍”部分，会告诉你的；Qwen3-8B甚至只需要下载一个最新的transformers；

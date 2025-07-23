@@ -56,6 +56,13 @@ huggingface-cli download --repo-type dataset --resume-download wikitext --local-
 
 #### 有些数据集目前不知道为什么就是没法用镜像站在jupyter里下载，只能到终端才行；下载后没法使用名字连接直接用，而是要：ds1_1 = load_dataset("/root/autodl-tmp/data/ds1_1") 直接加载本地数据即可！！！！哈哈哈哈
 
+#### 有关终端的下载：
+huggingface-cli download \
+  --repo-type dataset \
+  --data-split cot \
+  unsloth/OpenMathReasoning-mini \
+  --local-dir ./data/ds1_1
+
 ### 2. 下载环境
 #### 去看“模型介绍”部分，会告诉你的；Qwen3-8B甚至只需要下载一个最新的transformers；
 
